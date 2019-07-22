@@ -6,15 +6,14 @@ class SignUpForm extends React.Component {
     name: '',
     username: '',
     password: '',
-    phoneNumber: null,
+    phoneNumber: '',
     email: '',
-    significantOtherPhoneNumber: null,
+    significantOtherPhoneNumber: '',
     significantOtherUserName: ''
   }
 
   handleOnChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
-    console.log(this.state);
   }
 
 
