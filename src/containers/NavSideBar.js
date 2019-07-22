@@ -4,15 +4,18 @@ import {  Icon,  Menu, Sidebar } from 'semantic-ui-react'
 class NavSidebar extends React.Component {
 
   handleSignOut = () => {
-    console.log('clicked');
     localStorage.clear()
     this.props.history.push('/')
+  }
+
+  handleNewDate = () =>{
+    this.props.history.push('/newdate')
   }
 
   render () {
     return (
       <Sidebar as={Menu} animation='overlay' icon='labeled' inverted vertical visible width='thin'>
-      <Menu.Item as='a'>
+      <Menu.Item as='a' onClick={this.handleNewDate}>
       <Icon name='heart' />
       Plan a Date
       </Menu.Item>
