@@ -13,6 +13,12 @@ class LoginAndSignup extends React.Component {
   this.props.history.push("/signup")
   }
 
+  componentDidMount(){
+    if (localStorage.token){
+      this.props.history.push('/profile')
+    }
+  }
+
   handelLogin = (e) => {
     e.preventDefault()
     fetch('http://localhost:3000/login', {
@@ -25,8 +31,12 @@ class LoginAndSignup extends React.Component {
     })
     .then(res => res.json())
     .then(parsRes => {
-      localStorage.setItem('token', parsRes.token)
-      this.props.history.push('/profile')
+      if(parsRes.token){
+        localStorage.setItem('token', parsRes.token)
+        this.props.history.push('/profile')
+      } else {
+        alert('Wrong Username or Password. Please try again.')
+      }
     })
   }
   handleInput = (e) => {

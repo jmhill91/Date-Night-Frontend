@@ -6,9 +6,29 @@ import Profile from './components/ProfilePage'
 import CreateDate from './components/CreateDatePage'
 import { Switch, Route} from 'react-router-dom';
 
+
+const DATETYPES = 'http://localhost:3000/rendezvous_type'
+const ATTIRE ='http://localhost:3000/attire'
 class App extends React.Component {
+  state = {
+    clothing: [],
+    dateTypes: []
+  }
 
+  componentDidMount(){
+    fetch(DATETYPES)
+    .then(resp => resp.json())
+    .then(dates => {
+    this.setState({dateTypes: dates})
+    })
 
+    fetch(ATTIRE)
+    .then(resp => resp.json())
+    .then(option =>{
+      this.setState({clothing: option})
+    })
+
+  }
 
 
   render(){
@@ -17,7 +37,7 @@ class App extends React.Component {
       <Route exact path="/" component={LoginAndSignup}/>
       <Route path="/signup" component={SignUp} />
       <Route path="/profile" component={Profile} />
-      <Route path="/newdate" component={CreateDate} />
+      <Route path="/newdate" render={(routerProps) => <CreateDate {...routerProps} clothing={this.state.clothing} dateTypes={this.state.dateTypes} /> } />
       </Switch>
     );
   }

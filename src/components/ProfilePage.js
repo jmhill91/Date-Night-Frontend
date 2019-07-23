@@ -5,7 +5,8 @@ import UpcomingDates from '../containers/UpcomingDatesContainer'
 
 class ProfilePage extends React.Component {
 state = {
-  name: ''
+  name: '',
+  user_id: null
 }
   componentDidMount() {
     if (localStorage.token) {
@@ -17,17 +18,22 @@ state = {
         .then(res => res.json())
         .then(profileInfo =>{
           this.setState({
-            name: profileInfo.name
+            name: profileInfo.name,
+            user_id: profileInfo.id
           })
         })
-  }}
+  }   else {
+    this.props.history.push('/')
+  }
+
+}
 
   render(){
-    console.log(this.props)
+    console.log(this.props);
     return(
       <div>
       <h1>Welcome {this.state.name}</h1>
-      <NavSidebar history={this.props.history}/>
+      <NavSidebar history={this.props.history} user_id={this.state.user_id}/>
       <h2>Upcoming Dates</h2>
       <h2>Past Dates</h2>
       </div>

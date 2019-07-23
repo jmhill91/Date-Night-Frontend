@@ -9,7 +9,10 @@ class NavSidebar extends React.Component {
   }
 
   handleNewDate = () =>{
-    this.props.history.push('/newdate')
+    this.props.history.push({
+    pathname:  '/newdate',
+    user_id: this.props.user_id
+    })
   }
 
   render () {
