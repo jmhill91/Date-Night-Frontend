@@ -1,21 +1,15 @@
 import React from 'react'
-import { Grid, Image } from 'semantic-ui-react'
 
-const UpcomingDates = () => (
-  <Grid columns={3} divided>
-    <Grid.Row>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-      </Grid.Column>
-    </Grid.Row>
 
-  </Grid>
-)
+class UpcomingDates extends React.Component {
+
+  render(){
+    return(
+      <div>
+      <p>No Upcoming Dates to Display, feel free to schedule one.</p>
+      </div>
+    )
+  }
+}
 
 export default UpcomingDates
