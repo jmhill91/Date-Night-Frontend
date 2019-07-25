@@ -19,9 +19,20 @@ state = {
       })
         .then(res => res.json())
         .then(profileInfo =>{
+          profileInfo.data.attributes.rendezvous.forEach((dateNight) => {
+            let currentTime = new Date().toISOString()
+            currentTime.setUTCHours(0,0,0,0)
+            console.log(currentTime);
+            if (dateNight.time >= currentTime){
+              this.setState({  currentDates: [...this.state.currentDates, dateNight]})
+            }
+            else {
+              this.setState({  pastDates: [...this.state.pastDates, dateNight]})
+            }
+          })
           this.setState({
-            name: profileInfo.name,
-            userId: profileInfo.id
+            name: profileInfo.data.attributes.name,
+            userId: profileInfo.data.id
           })
         })
   }   else {
@@ -35,9 +46,9 @@ state = {
       <h1>Welcome {this.state.name}</h1>
       <NavSidebar history={this.props.history} user_id={this.state.userId}/>
       <h2>Upcoming Dates</h2>
-      <UpcomingDates />
+      <UpcomingDates dates={this.state.currentDates}/>
       <h2>Past Dates</h2>
-      <PastDates />
+      <PastDates dates={this.state.pastDates}/>
       </div>
     )
   }
