@@ -20,10 +20,9 @@ state = {
         .then(res => res.json())
         .then(profileInfo =>{
           profileInfo.data.attributes.rendezvous.forEach((dateNight) => {
-            let currentTime = new Date().toISOString()
-            currentTime.setUTCHours(0,0,0,0)
-            console.log(currentTime);
-            if (dateNight.time >= currentTime){
+            var tempDate = new Date();
+            var currentTime = new Date (tempDate.getUTCFullYear(), tempDate.getUTCMonth(), tempDate.getUTCDate()-1);
+            if (dateNight.date > currentTime.toISOString()){
               this.setState({  currentDates: [...this.state.currentDates, dateNight]})
             }
             else {
@@ -43,12 +42,16 @@ state = {
   render(){
     return(
       <div>
-      <h1>Welcome {this.state.name}</h1>
-      <NavSidebar history={this.props.history} user_id={this.state.userId}/>
-      <h2>Upcoming Dates</h2>
-      <UpcomingDates dates={this.state.currentDates}/>
-      <h2>Past Dates</h2>
-      <PastDates dates={this.state.pastDates}/>
+        <h1>Welcome {this.state.name}</h1>
+        <NavSidebar history={this.props.history} user_id={this.state.userId}/>
+        <div className='UpcomingDates'>
+          <h2>Upcoming Dates</h2>
+          <UpcomingDates dates={this.state.currentDates} clothing={this.props.clothing} dateTypes={this.props.dateTypes}/>
+        </div>
+        <div>
+          <h2>Past Dates</h2>
+          <PastDates dates={this.state.pastDates} clothing={this.props.clothing} dateTypes={this.props.dateTypes}/>
+        </div>
       </div>
     )
   }

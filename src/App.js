@@ -36,7 +36,7 @@ class App extends React.Component {
       <Switch>
       <Route exact path="/" component={LoginAndSignup}/>
       <Route path="/signup" component={SignUp} />
-      <Route path="/profile" component={Profile} />
+      <Route path="/profile" render={(routerProps) => <Profile {...routerProps} clothing={this.state.clothing} dateTypes={this.state.dateTypes} /> } />
       <Route path="/newdate" render={(routerProps) => <CreateDate {...routerProps} clothing={this.state.clothing} dateTypes={this.state.dateTypes} /> } />
       </Switch>
     );
