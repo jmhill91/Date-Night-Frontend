@@ -39,11 +39,22 @@ state = {
   }
 }
 
+  cancelDate = (e, dateID) => {
+    fetch(`http://localhost:3000/rendezvou/${dateID}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+    })
+    .then(window.location.reload())
+  }
+
   render(){
     return(
       <div>
         <h1>Welcome {this.state.name}</h1>
-        <NavSidebar history={this.props.history} user_id={this.state.userId}/>
+        <NavSidebar cancelDate={this.cancelDate} history={this.props.history} user_id={this.state.userId} dates={this.state.currentDates} dateTypes={this.props.dateTypes}/>
         <div className='UpcomingDates'>
           <h2>Upcoming Dates</h2>
           <UpcomingDates dates={this.state.currentDates} clothing={this.props.clothing} dateTypes={this.props.dateTypes}/>

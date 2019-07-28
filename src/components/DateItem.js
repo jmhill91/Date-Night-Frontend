@@ -7,7 +7,6 @@ class DateItem extends React.Component {
 
   render(){
     let babysitter;
-    console.log(this.props);
     if (this.props.date.babysitter === true) {
         babysitter = <li> Don't Forget the Babysitter </li>
     }else {
@@ -15,7 +14,7 @@ class DateItem extends React.Component {
     }
     return(
       <div className="dateShow">
-      <Moment format="MM-DD-YYYY">
+      <Moment format="MM-DD-YYYY" tz="UTC">
                {this.props.date.date}
            </Moment>
            &nbsp;

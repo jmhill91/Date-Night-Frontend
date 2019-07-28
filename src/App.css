@@ -98,3 +98,17 @@ time {
   font-style: italic;
   color: white
 }
+
+.ui.modal {
+  background-color: lightpink
+}
+.ui.modal>.actions{
+  background-color: lightpink
+}
+.ui.modal>.content{
+  background-color: lightpink
+}
+
+.ui.modal>.header:not(.ui){
+  background-color: lightpink
+}
