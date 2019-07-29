@@ -47,7 +47,7 @@ class LoginAndSignup extends React.Component {
 
     return  (
       <div>
-      <h1>Welcome to The Date Night App</h1>
+      <h1>Welcome to Date Night</h1>
         <Segment placeholder>
         <Grid columns={2} relaxed='very' stackable>
         <Grid.Column>

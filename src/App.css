@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script&display=swap');
+
 .App {
   text-align: center;
 }
@@ -9,7 +11,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #bd0a07;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,8 +41,8 @@ body {
       overflow-x: hidden;
       min-width: 320px;
       background-color: #bd0a07;
-      font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-      font-size: 14px;
+      font-family: 'Oleo Script', cursive;
+      font-size: 20px;
       line-height: 1.4285em;
       color: rgba(0,0,0,.87);
       font-smoothing: antialiased;
@@ -90,9 +92,14 @@ p {
 
 div{
   text-align: center;
-  color: lightpink
+  color: lightpink;
 }
 
+
+.dateShow {
+  display: inline-block;
+  margin-left: 45px
+}
 time {
   font-size: 20px;
   font-style: italic;
@@ -111,4 +118,8 @@ time {
 
 .ui.modal>.header:not(.ui){
   background-color: lightpink
+}
+
+ul {
+list-style-type: none;
 }

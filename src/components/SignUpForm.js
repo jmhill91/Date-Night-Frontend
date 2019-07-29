@@ -46,7 +46,7 @@ class SignUpForm extends React.Component {
 
     return (
       <div>
-      <h1 className="SignUp-form-head">Welcome to the Date Night App, Please Sign Up!</h1>
+      <h1 className="SignUp-form-head">Welcome to Date Night, Please Sign Up!</h1>
       <Form onSubmit={this.handleSubmit}>
       <Form.Field>
       <label>Name</label>
@@ -71,10 +71,6 @@ class SignUpForm extends React.Component {
       <Form.Field>
       <label>Significant Other Phone Number</label>
       <input type='tel' name="significantOtherPhoneNumber" value={this.state.significantOtherPhoneNumber} pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='999-999-9999' onChange={this.handleOnChange}/>
-      </Form.Field>
-      <Form.Field>
-      <label>*Significant Other Username</label>
-      <input placeholder='Username' name='significantOtherUserName' value={this.state.significantOtherUserName} onChange={this.handleOnChange}/>
       </Form.Field>
 
       <Button type='submit'>Submit</Button><br/>

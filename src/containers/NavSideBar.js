@@ -25,15 +25,32 @@ class NavSidebar extends React.Component {
     user_id: this.props.user_id
     })
   }
+
   handleEditProfile = () => {
-    this.props.history.push('/edit-profile')
+    this.props.history.push({
+      pathname: '/edit-profile',
+      name: this.props.usersName,
+      phone: this.props.phone,
+      soPhone: this.props.soPhone,
+      email: this.props.email,
+      userId: this.props.user_id
+  })
   }
+
   handleCancel = (e) => {
     this.props.cancelDate(e,this.state.selectedDate)
     this.close()
   }
+
   handleDateSelect = (e) => {
     this.setState({selectedDate: e.target.value})
+  }
+
+  handleEditDate = (e) => {
+     this.props.history.push({
+      pathname: '/editdate',
+      rendezvou_id: this.state.selectedDate
+     })
   }
 
   render () {
@@ -44,7 +61,7 @@ class NavSidebar extends React.Component {
     if (this.state.edit === true) {
       opt = this.props.dates.map(rendezvous =>{
        let outing=  this.props.dateTypes.find(dt => dt.id === rendezvous.rendezvous_type_id)
-     return  <option value={rendezvous.id}>{outing.name}</option>})
+     return  <option value={rendezvous.id} >{outing.name}</option>})
     mod = (  <Modal dimmer={dimmer} open={open} onClose={this.close}>
       <Modal.Header>Pick A Date To Edit</Modal.Header>
       <Modal.Content >
@@ -65,7 +82,7 @@ class NavSidebar extends React.Component {
       icon='edit outline'
       labelPosition='right'
       content="Selected Date"
-      onClick={this.close}
+      onClick={this.handleEditDate}
       />
       </Modal.Actions>
       </Modal> )
