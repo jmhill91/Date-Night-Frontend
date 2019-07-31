@@ -46,6 +46,7 @@ body {
       line-height: 1.4285em;
       color: rgba(0,0,0,.87);
       font-smoothing: antialiased;
+      background-image: url('https://cdn.pixabay.com/photo/2017/01/12/00/50/banner-1973380_960_720.jpg')
   }
 
 .ui.placeholder.segment {
@@ -54,7 +55,7 @@ body {
 }
 
 .ui.form {
-    font-size: 1rem;
+    font-size: 20px;
     background-color: #f5f5f540;
     margin-top: 10%;
     padding-right: 15%;
@@ -90,7 +91,7 @@ p {
 
 div{
   text-align: center;
-  color: lightpink;
+  color: rgb(252, 243, 243);
 }
 
 
