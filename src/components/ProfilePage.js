@@ -57,7 +57,6 @@ state = {
   }
 
   render(){
-    
     return(
       <div>
         <h1>Welcome {this.state.name}</h1>

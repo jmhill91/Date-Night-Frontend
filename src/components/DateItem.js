@@ -7,7 +7,6 @@ class DateItem extends React.Component {
 
 
   render(){
-    console.log(moment().format("ddd, hA"));
     let babysitter;
     if (this.props.date.babysitter === true) {
         babysitter = <li> Don't Forget the Babysitter </li>

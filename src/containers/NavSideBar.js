@@ -22,7 +22,9 @@ class NavSidebar extends React.Component {
   handleNewDate = () =>{
     this.props.history.push({
     pathname:  '/newdate',
-    user_id: this.props.user_id
+    user_id: this.props.user_id,
+    soPhone: this.props.soPhone.replace(/-/g, ""),
+    name: this.props.usersName
     })
   }
 
@@ -49,14 +51,14 @@ class NavSidebar extends React.Component {
   handleEditDate = (e) => {
      this.props.history.push({
       pathname: '/editdate',
-      rendezvou_id: this.state.selectedDate
+      rendezvou_id: this.state.selectedDate,
+      soPhone: this.props.soPhone.replace(/-/g, "")
      })
   }
 
   render () {
     let mod;
     let opt;
-
     const { open, dimmer } = this.state
     if (this.state.edit === true) {
       opt = this.props.dates.map(rendezvous =>{
