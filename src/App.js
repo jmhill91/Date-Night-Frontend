@@ -9,8 +9,8 @@ import EditDate from './components/EditDatesPage'
 import { Switch, Route} from 'react-router-dom';
 
 
-const DATETYPES = 'http://localhost:3000/rendezvous_type'
-const ATTIRE ='http://localhost:3000/attire'
+const DATETYPES = 'https://date-night-backend.herokuapp.com/rendezvous_type'
+const ATTIRE ='https://date-night-backend.herokuapp.com/attire'
 class App extends React.Component {
   state = {
     clothing: [],

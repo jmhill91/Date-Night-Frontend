@@ -29,7 +29,7 @@ class EditProfileForm extends React.Component {
   handleSubmit = (e) =>{
     e.preventDefault()
     console.log(e);
-    fetch(`http://localhost:3000/users/${this.props.location.userId}`, {
+    fetch(`https://date-night-backend.herokuapp.com/users/${this.props.location.userId}`, {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json',

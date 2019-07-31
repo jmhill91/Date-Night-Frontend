@@ -15,7 +15,7 @@ state = {
 }
   componentDidMount() {
     if (localStorage.token) {
-      fetch('http://localhost:3000/profile', {
+      fetch('https://date-night-backend.herokuapp.com/profile', {
         headers: {
           Authorization: localStorage.token
         }
@@ -46,7 +46,7 @@ state = {
 }
 
   cancelDate = (e, dateID) => {
-    fetch(`http://localhost:3000/rendezvou/${dateID}`,{
+    fetch(`https://date-night-backend.herokuapp.com/rendezvou/${dateID}`,{
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

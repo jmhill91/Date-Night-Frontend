@@ -21,7 +21,7 @@ class LoginAndSignup extends React.Component {
 
   handelLogin = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3000/login', {
+    fetch('https://date-night-backend.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

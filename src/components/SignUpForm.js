@@ -20,7 +20,7 @@ class SignUpForm extends React.Component {
   handleSubmit = (e) =>{
     e.preventDefault()
     console.log(e);
-    fetch('http://localhost:3000/signup', {
+    fetch('https://date-night-backend.herokuapp.com/signup', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

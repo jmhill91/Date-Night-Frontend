@@ -26,7 +26,7 @@ class NewDate extends React.Component  {
 
   handelSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3000/rendezvou', {
+    fetch('https://date-night-backend.herokuapp.com/rendezvou', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

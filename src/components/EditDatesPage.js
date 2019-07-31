@@ -19,7 +19,7 @@ class NewDate extends React.Component  {
       this.props.history.push('/')
     }
     let rendezvou = this.props.history.location.rendezvou_id
-    fetch(`http://localhost:3000/rendezvou/${rendezvou}`)
+    fetch(`https://date-night-backend.herokuapp.com/rendezvou/${rendezvou}`)
     .then(resp => resp.json())
     .then(rend => {
       this.setState({
@@ -36,7 +36,7 @@ class NewDate extends React.Component  {
 
   handelSubmit = (e) => {
     e.preventDefault()
-    fetch(`http://localhost:3000/rendezvou/${this.props.history.location.rendezvou_id}`, {
+    fetch(`https://date-night-backend.herokuapp.com/rendezvou/${this.props.history.location.rendezvou_id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
