@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script&display=swap');
+
 .App {
   text-align: center;
 }
@@ -9,7 +11,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #bd0a07;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,11 +41,14 @@ body {
       overflow-x: hidden;
       min-width: 320px;
       background-color: #bd0a07;
-      font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-      font-size: 14px;
+      font-family: 'Oleo Script', cursive;
+      font-size: 20px;
       line-height: 1.4285em;
       color: rgba(0,0,0,.87);
       font-smoothing: antialiased;
+      background-image: url('https://cdn.pixabay.com/photo/2017/01/12/00/50/banner-1973380_960_720.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
   }
 
 .ui.placeholder.segment {
@@ -52,7 +57,7 @@ body {
 }
 
 .ui.form {
-    font-size: 1rem;
+    font-size: 20px;
     background-color: #f5f5f540;
     margin-top: 10%;
     padding-right: 15%;
@@ -67,15 +72,16 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
     margin-top: 0;
     text-align: center;
     font-size: 50px;
+    color: black
+
 }
 
-.ui.button{
-  float: right
-}
+
 
 h2 {
     font-size: 30px;
     text-align: center;
+    color: black
 }
 
 p {
@@ -83,4 +89,38 @@ p {
     line-height: 1.4285em;
     text-align: center;
     font-size: 20px
+}
+
+div{
+  text-align: center;
+  color: rgb(252, 243, 243);
+}
+
+
+.dateShow {
+  display: inline-block;
+  margin-left: 45px
+}
+time {
+  font-size: 20px;
+  font-style: italic;
+  color: white
+}
+
+.ui.modal {
+  background-color: lightpink
+}
+.ui.modal>.actions{
+  background-color: lightpink
+}
+.ui.modal>.content{
+  background-color: lightpink
+}
+
+.ui.modal>.header:not(.ui){
+  background-color: lightpink
+}
+
+ul {
+list-style-type: none;
 }

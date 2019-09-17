@@ -10,7 +10,12 @@ class NewDate extends React.Component  {
     user_id: this.props.location.user_id,
     attire_id: null,
     rendezvous_type_id: null,
-    babysitter: false
+    babysitter: false,
+    soPhone: this.props.location.soPhone,
+    message: '',
+    surprise: false,
+    rend_name: '',
+    attire_name: ''
   }
 
   componentDidMount(){
@@ -21,7 +26,7 @@ class NewDate extends React.Component  {
 
   handelSubmit = (e) => {
     e.preventDefault()
-    fetch('http://localhost:3000/rendezvou', {
+    fetch('https://date-night-backend.herokuapp.com/rendezvou', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,18 +43,33 @@ class NewDate extends React.Component  {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
+    this.setState({message: `${this.props.location.name} would like to take you on a date to ${this.state.rend_name} on ${this.state.date} at ${this.state.time}. They will meet you at ${this.state.location}. Please wear ${this.state.attire_name}.`})
   }
 
   handleDateSelect = (e) => {
-    this.setState({ rendezvous_type_id: e.target.value})
+    let found
+    found = this.props.dateTypes.find(date => {
+    return  date.id == e.target.value
+    })
+    this.setState({ rendezvous_type_id: e.target.value, rend_name: found.name})
+    this.setState({message: `${this.props.location.name} would like to take you on a date to ${found.name} on ${this.state.date} at ${this.state.time}. They will meet you at ${this.state.location}. Please wear ${this.state.attire_name}.`})
   }
 
   handleAttireSelect = (e) => {
-    this.setState({attire_id: e.target.value});
+    let found
+    found = this.props.clothing.find(date => {
+    return  date.id == e.target.value
+    })
+    this.setState({attire_id: e.target.value, attire_name: found.name});
+    this.setState({message: `${this.props.location.name} would like to take you on a date to ${this.state.rend_name} on ${this.state.date} at ${this.state.time}. They will meet you at ${this.state.location}. Please wear ${found.name}.`})
   }
 
   handleBabysitter = (e) => {
     this.setState({babysitter: !this.state.babysitter})
+  }
+
+  handleSurprise = (e) => {
+    this.setState({surprise: !this.state.surprise})
   }
 
   render(){
@@ -59,7 +79,7 @@ class NewDate extends React.Component  {
         })
 
         let addDates = this.props.dateTypes.map(date => {
-          return <option key={date.id} value={date.id}>{date.name}</option>
+          return <option className={date.name} key={date.id} value={date.id}>{date.name}</option>
         })
 
     return(
@@ -98,7 +118,7 @@ class NewDate extends React.Component  {
       </Form.Field>
       <Form.Field>
         <label>Is this Date a Surprise?</label>
-        <Checkbox label='Surprise' />
+        <Checkbox onChange={this.handleSurprise}label='Surprise' />
       </Form.Field>
         <Button type='submit'>Submit</Button>
       </Form>
